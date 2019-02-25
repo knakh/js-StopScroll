@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Block Scroll</title>
+  </head>
+
+  <body class="js-stop-scroll">
+    <style>
+      .sample-text {
+        height: 50vh;
+      }
+      .toggle-scroll-button {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+      }
+    </style>
+    <button class="toggle-scroll-button" id="toggle-scroll-button">スクロールを禁止する</button>
+    <p class="sample-text">スクロールして下さい。</p>
+    <p class="sample-text">スクロールして下さい。</p>
+    <p class="sample-text">スクロールして下さい。</p>
+    <p class="sample-text">スクロールして下さい。</p>
+    <p class="sample-text">スクロールして下さい。</p>
+
+    <link rel="stylesheet" href="stop-scroll.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="StopScroll.js"></script>
+    <script>
+      $(function () {
+        var $button = $("#toggle-scroll-button");
+        var buttonOriginalText = $button.text();
+
+        var display = new StopScroll();
+        $button.on('click', function () {
+          var toggleClass = 'deny-scroll';
+          if (!$(this).hasClass(toggleClass)) {
+            $(this).addClass(toggleClass);
+            $(this).text('スクロールを許可する');
+            display.lockScroll();
+          } else {
+            $(this).removeClass(toggleClass);
+            $(this).text(buttonOriginalText);
+            display.unlockScroll();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
