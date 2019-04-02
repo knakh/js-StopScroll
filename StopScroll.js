@@ -14,18 +14,19 @@ var StopScroll = function () {
   t.concrete.addClass(this.bindClassName);
 };
 StopScroll.prototype = {
-  lockScroll: function () {
+  stop: function () {
     var t = this;
 
     t.saveScrollTop();
     t.concrete.addClass(t.lockClassName);
     t.concrete.css('top', -t.original.scrollTop + 'px');
   },
-  unlockScroll: function () {
+  purge: function () {
     var t = this;
 
     t.concrete.removeClass(t.lockClassName);
     t.container.scrollTop(t.original.scrollTop);
+    t.unbindClass();
   },
   unbindClass: function () {
     var t = this;

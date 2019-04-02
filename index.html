@@ -38,11 +38,11 @@
           if (!$(this).hasClass(toggleClass)) {
             $(this).addClass(toggleClass);
             $(this).text('スクロールを許可する');
-            display.lockScroll();
+            display.stop();
           } else {
             $(this).removeClass(toggleClass);
             $(this).text(buttonOriginalText);
-            display.unlockScroll();
+            display.purge();
           }
         });
       });
