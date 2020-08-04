@@ -1,6 +1,8 @@
 ;'use strict';
+
 /**
  * StopScrolling
+ * require: https://code.jquery.com/jquery-1.12.4.min.js
  */
 var StopScrolling = function () {
   var _this = this;
