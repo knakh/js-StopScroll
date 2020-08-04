@@ -24,15 +24,15 @@
     <p class="sample-text">スクロールして下さい。</p>
     <p class="sample-text">スクロールして下さい。</p>
 
-    <link rel="stylesheet" href="StopScroll.css">
+    <link rel="stylesheet" href="StopScrolling.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="StopScroll.js"></script>
+    <script src="StopScrolling.js"></script>
     <script>
       $(function () {
         var $button = $("#toggle-scroll-button");
         var buttonOriginalText = $button.text();
 
-        var display = new StopScroll();
+        var display = new StopScrolling();
         $button.on('click', function () {
           var toggleClass = 'deny-scroll';
           if (!$(this).hasClass(toggleClass)) {
